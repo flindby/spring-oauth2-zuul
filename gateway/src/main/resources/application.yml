@@ -1,0 +1,20 @@
+logging:
+  level:
+    org.springframework.security: DEBUG
+    
+zuul:
+  
+  routes:
+    ui1:
+      path: /ui1/**
+      url: http://localhost:8081
+    ui2:
+      path: /ui2/**
+      url: http://localhost:8082
+    resources:      
+      path: /resource/**
+      url: http://localhost:9001/resource
+    user:
+      path: /user/**
+      url: http://localhost:9999/uaa/user
+      

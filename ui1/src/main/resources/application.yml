@@ -1,0 +1,20 @@
+debug: true
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.web: DEBUG
+
+server:
+  port: 8081
+
+security:
+  oauth2:    
+    client:
+      accessTokenUri: http://localhost:9999/uaa/oauth/token
+      userAuthorizationUri: http://localhost:9999/uaa/oauth/authorize
+      clientId: ui1
+      clientSecret: ui1-secret   
+    resource:
+      userInfoUri: http://localhost:9999/uaa/user
+      preferTokenInfo: false  
