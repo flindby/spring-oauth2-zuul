@@ -1,0 +1,13 @@
+server:
+  port: 9999
+  context-path: /uaa
+
+security:
+  sessions: if-required
+  
+spring:
+  datasource:
+    url: jdbc:jtds:sqlserver://localhost:1433/uaa;
+    username: uaa
+    password: password
+    driver-class-name: net.sourceforge.jtds.jdbc.Driver
