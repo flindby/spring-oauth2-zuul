@@ -1,9 +1,13 @@
 logging:
   level:
     org.springframework.security: DEBUG
+    org.springframework.cloud: DEBUG
+    org.springframework.web: WARN
     
-zuul:
+server:
+  port: 8080
   
+zuul:  
   routes:
     ui1:
       path: /ui1/**
@@ -11,7 +15,7 @@ zuul:
     ui2:
       path: /ui2/**
       url: http://localhost:8082
-    resources:      
+    resource:      
       path: /resource/**
       url: http://localhost:9001/resource
     user:

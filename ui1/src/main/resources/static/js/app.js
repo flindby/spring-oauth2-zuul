@@ -19,7 +19,7 @@ angular.module('hello', [ 'ngRoute' ]).config(function($routeProvider, $httpProv
 		return $route.current && route === $route.current.controller;
 	};
 
-	$http.get('user').success(function(data) {
+	$http.get('/user').success(function(data) {
 		if (data.name) {
 			$rootScope.authenticated = true;
 			$rootScope.loggedInUser = data;
@@ -44,13 +44,13 @@ angular.module('hello', [ 'ngRoute' ]).config(function($routeProvider, $httpProv
 })
 
 .controller('home', function($scope, $http) {
-	$http.get('resource/test').success(function(data) {
+	$http.get('/resource/demo').success(function(data) {
 		$scope.greeting = data;
 	})
 })
 
 .controller('protected', function($scope, $http) {	
-	$http.get('resource/test').success(function(data) {
+	$http.get('/resource/test').success(function(data) {
 		$scope.test = data;
 	})
 });

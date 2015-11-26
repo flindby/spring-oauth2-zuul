@@ -15,6 +15,8 @@ security:
       userAuthorizationUri: http://localhost:9999/uaa/oauth/authorize
       clientId: ui1
       clientSecret: ui1-secret   
+      pre-established-redirect-uri: http://localhost:8080/ui1/login     
+      use-current-uri: false
     resource:
       userInfoUri: http://localhost:9999/uaa/user
       preferTokenInfo: false  

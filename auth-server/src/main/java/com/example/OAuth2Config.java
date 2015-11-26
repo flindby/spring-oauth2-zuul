@@ -48,7 +48,6 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
 			.authorities("ROLE_TRUSTED_CLIENT")
 			.authorizedGrantTypes("authorization_code", "refresh_token")
 			.scopes("ui1.read")
-			//.redirectUris("http://localhost:8080/ui1/login")
 			.autoApprove(true)		
 		.and()
 			.withClient("ui2")

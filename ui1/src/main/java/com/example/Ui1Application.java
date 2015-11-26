@@ -1,6 +1,5 @@
 package com.example;
 
-import java.security.Principal;
 import java.util.ArrayList;
 
 import org.springframework.boot.SpringApplication;
@@ -13,8 +12,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -31,28 +28,21 @@ public class Ui1Application extends WebSecurityConfigurerAdapter {
 		SpringApplication.run(Ui1Application.class, args);
 	}
 
-	@RequestMapping("/user")
-	@ResponseBody
-	public Principal user(Principal user) {
-		return user;
-	}
+	// Should be accessed from :9999
+//		@RequestMapping("/user")
+//		@ResponseBody
+//		public Principal user(Principal user) {
+//			return user;
+//		}
 	
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
-//		http
-//			.logout()
-//		.and().authorizeRequests()
-//			.antMatchers("/index.html", "/home.html", "/").permitAll()				
-//			.anyRequest().authenticated()
-//
-//		.and().httpBasic().disable();
-		
 		
 		http
 			.logout()
 		.and()
 			.antMatcher("/**").authorizeRequests()
-			.antMatchers("/index.html", "/home.html", "/"/*, "/login"*/).permitAll()
+			.antMatchers("/index.html", "/home.html", "/", "/login").permitAll()
 			.anyRequest().authenticated()
 	
 		// We use OAuth2 SSO, so we don't need basic auth
