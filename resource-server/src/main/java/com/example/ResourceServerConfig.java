@@ -33,7 +33,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 			.requestMatchers().antMatchers("/**")
 		.and()
     		.authorizeRequests()		
-    		.antMatchers("/**").access("#oauth2.isClient() or hasRole('END_USER')")	
+    		.antMatchers("/test/**").access("#oauth2.isClient() or hasRole('END_USER')")	
+    		.antMatchers("/demo/**").permitAll()
     		.anyRequest().authenticated();		
 	}
 

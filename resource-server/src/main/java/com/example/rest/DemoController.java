@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
  *
  */
 @RestController
-@RequestMapping("test")
-public class TestController {
+@RequestMapping("demo")
+public class DemoController {
 
 	@RequestMapping(method = GET)
 	public Map<String, String> getTest() {
 		Map<String, String> map = new HashMap<>();
-		map.put("data", "protected_data");
+		map.put("data", "unprotected_data");
 		return map;
 	}
 
