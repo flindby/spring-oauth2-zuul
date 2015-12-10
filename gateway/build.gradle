@@ -31,8 +31,11 @@ repositories {
 
 dependencies {
     compile('org.springframework.cloud:spring-cloud-starter-zuul')
-    compile('org.springframework.boot:spring-boot-starter-security')
+    compile('org.springframework.boot:spring-boot-starter-security')    
+    compile("org.springframework.security.oauth:spring-security-oauth2")    
     testCompile('org.springframework.boot:spring-boot-starter-test') 
+    
+    compile('org.springframework.cloud:spring-cloud-starter-security')
 }
 
 dependencyManagement {

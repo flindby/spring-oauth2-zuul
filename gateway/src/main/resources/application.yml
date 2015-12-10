@@ -7,18 +7,30 @@ logging:
 server:
   port: 8080
   
+spring:
+  aop:
+    proxy-target-class: true
+  
 zuul:  
-  routes:
-    ui1:
-      path: /ui1/**
+  routes:    
+    startpage:
+      path: /**
       url: http://localhost:8081
-    ui2:
-      path: /ui2/**
-      url: http://localhost:8082
     resource:      
       path: /resource/**
       url: http://localhost:9001/resource
     user:
       path: /user/**
       url: http://localhost:9999/uaa/user
-      
+
+security:
+  oauth2:    
+    client:
+      accessTokenUri: http://localhost:9999/uaa/oauth/token
+      userAuthorizationUri: http://localhost:9999/uaa/oauth/authorize
+      clientId: ui1
+      clientSecret: ui1-secret   
+    resource:
+      userInfoUri: http://localhost:9999/uaa/user
+      preferTokenInfo: false  
+  sessions: ALWAYS
